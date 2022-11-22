@@ -4,7 +4,6 @@
 
 Emacs function for termux-call & contacts prompt.  Make a telephone call from Emacs running on an Android mobile phone
 
-#+attr_html: :width 100px
 [[./in-use.jpeg]]
 
 * Dependencies
