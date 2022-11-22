@@ -55,6 +55,3 @@
 
 (provide 'emacs-termux-call)
 ;;; emacs-termux-call.el ends here
-
-
-;;/Users/jsk/Desktop/tmux-call-contacts/move-contacts-test/contacts.txt
