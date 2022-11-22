@@ -8,9 +8,6 @@ Emacs function for termux-call & contacts prompt.  Make a telephone call from Em
 + termux-call https://github.com/lahloug/termux_call
 
 * Usage
-  #+BEGIN_SRC
-  git clone
-  #+END_SRC
 
 #+BEGIN_SRC
 mv emacs-termux-call.el /path/to/your/personal/config
