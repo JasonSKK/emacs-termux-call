@@ -15,7 +15,6 @@ Emacs function for termux-call & contacts prompt.  Make a telephone call from Em
 #+BEGIN_SRC
 mv emacs-termux-call.el /path/to/your/personal/config
 #+END_SRC
-   + */* or copy code or whateva
 
 Export your contacts from mobile phone or google contacts or whateva
 
