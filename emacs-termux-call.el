@@ -50,7 +50,7 @@
        "Choose contact: " (split-string
                            (loadup-file contactsfile) "\n" t)))
      ))
-  (shell-command (concat "termux-call " arg))) ;; make termux call
+  (shell-command (concat "termux-call " (prin1-to-string arg) ))) ;; make termux call
 
 
 (provide 'emacs-termux-call)
