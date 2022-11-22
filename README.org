@@ -1,0 +1,28 @@
+#+TITLE: emacs-termux-call
+#+AUTHOR: JasonSKK
+#+DATE:      2022-11-23 12:41 AM
+
+Make a telephone call from Emacs running on an Android mobile phone
+
+* Dependencies
++ termux-call https://github.com/lahloug/termux_call
+
+* Usage
+1. git clone
+
+2. mv emacs-termux-call.el /path/to/your/personal/config
+   - */* or copy code or whateva
+
+3. export your contacts from mobile phone or google contacts or whateva
+
+4. create a txt file containing *ONLY* the exact contact names, numbers not needed
+
+e.g.
+
++---------+
+| Angus   |
+| Billie  |
+| Georgia |
+| Jason   |
+| ...     |
++---------+
