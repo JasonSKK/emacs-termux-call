@@ -8,14 +8,18 @@ Emacs function for termux-call & contacts prompt.  Make a telephone call from Em
 + termux-call https://github.com/lahloug/termux_call
 
 * Usage
-1. git clone
+  #+BEGIN_SRC
+  git clone
+  #+END_SRC
 
-2. mv emacs-termux-call.el /path/to/your/personal/config
-   - */* or copy code or whateva
+#+BEGIN_SRC
+mv emacs-termux-call.el /path/to/your/personal/config
+#+END_SRC
+   + */* or copy code or whateva
 
-3. export your contacts from mobile phone or google contacts or whateva
+Export your contacts from mobile phone or google contacts or whateva
 
-4. create a txt file containing *ONLY* the exact contact names, numbers not needed
+Create a txt file containing *ONLY* the exact contact names, numbers not needed
 
 e.g.
 
