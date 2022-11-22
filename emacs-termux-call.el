@@ -35,21 +35,21 @@
 
 ;; prompt to mini-buffer + show contacts
 (defun emacs-termux-call (arg)
-  (interactive "P")
-  (if ;; file exists just read it -- prompt to select contact
-      (file-exists-p "./contacts.txt")
-      (list
-       (completing-read
-        "Choose contact: " (split-string
-                            (loadup-file "./move-contacts-test/contacts.txt") "\n" t)))
-    (setq contactsfile (read-string ;; if file does not exist prompt for string input contacts filename absolute path
-                        "contacts file absolute path: " ))
-    (display-warning :warning "Consider adding (setq contactsfile /path/to/contactsfile) to your load path, either providing a contacts file'")
-    (list
-     (completing-read
-      "Choose contact: " (split-string
-                          (loadup-file contactsfile) "\n" t)))
-    )
+  (interactive
+   (if ;; file exists just read it -- prompt to select contact
+       (file-exists-p "./contacts.txt")
+       (list
+        (completing-read
+         "Choose contact: " (split-string
+                             (loadup-file "./contacts.txt") "\n" t)))
+     (setq contactsfile (read-string ;; if file does not exist prompt for string input contacts filename absolute path
+                         "contacts file absolute path: " ))
+     (display-warning :warning "Consider adding (setq contactsfile /path/to/contactsfile) to your load path, either providing a contacts file'")
+     (list
+      (completing-read
+       "Choose contact: " (split-string
+                           (loadup-file contactsfile) "\n" t)))
+     ))
   (shell-command (concat "termux-call " arg))) ;; make termux call
 
 
