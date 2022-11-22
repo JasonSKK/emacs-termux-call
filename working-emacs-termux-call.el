@@ -26,24 +26,24 @@
 ;;; Code:
 
 ;; .. to load contacts file
-(defun loadup-file (file)
-  (with-temp-buffer
-    (insert-file-contents file)
-    (buffer-substring-no-properties
-     (point-min)
-     (point-max))))
-
-
-;; prompt to mini-buffer + show contacts
-(defun emacs-termux-call (arg)
-  (interactive "P")
-  (if (file-exists-p "./contacts.txt")
-      (list
-       (completing-read
-        "Choose contact: " (split-string
-                            (loadup-file "./move-contacts-test/contacts.txt") "\n" t))))
-  (shell-command (concat "termux-call " arg))) ;; make termux call
-
-(provide 'emacs-termux-call)
-
+;; (defun loadup-file (file)
+;;   (with-temp-buffer
+;;     (insert-file-contents file)
+;;     (buffer-substring-no-properties
+;;      (point-min)
+;;      (point-max))))
+;;
+;;
+;; ;; prompt to mini-buffer + show contacts
+;; (defun emacs-termux-call (arg)
+;;   (interactive "P")
+;;   (if (file-exists-p "./contacts.txt")
+;;       (list
+;;        (completing-read
+;;         "Choose contact: " (split-string
+;;                             (loadup-file "./move-contacts-test/contacts.txt") "\n" t))))
+;;   (shell-command (concat "termux-call " arg))) ;; make termux call
+;;
+;; (provide 'emacs-termux-call)
+;;
 ;;; emacs-termux-call.el ends here
