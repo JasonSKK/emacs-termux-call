@@ -19,10 +19,10 @@ Make a telephone call from Emacs running on an Android mobile phone
 
 e.g.
 
-+---------+
+|---------|
 | Angus   |
 | Billie  |
 | Georgia |
 | Jason   |
 | ...     |
-+---------+
+|---------|
