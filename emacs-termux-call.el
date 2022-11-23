@@ -56,7 +56,7 @@
   (shell-command (concat "termux-call " (prin1-to-string arg) ))) ;; make termux call
 
 ;; setup contacts file -- for google contacts csv format
-(defun emacs-termux-call-setup-contacts ()
+(defun emacs-termux-call-setup-contacts (&optional in)
   (interactive
    (list (let ((input-file (read-file-name "Input contacts file (google contacts & .csv): " "~/"))) ;; select input contacts file -- prompt
            (let ((output-file (read-file-name "Output contacts file: " "~/"))) ;; select contacts export file -- prompt
@@ -64,7 +64,8 @@
               (concat "cat "
                       (prin1-to-string input-file) " | cut -d \, -f 1 >> "
                       (prin1-to-string output-file) " && cat "
-                      (prin1-to-string output-file)))
+                      (prin1-to-string output-file))
+              (message (concat "Contacts exported to: " output-file " Do M-x emacs-termux-call")))
              (setq contacts_file output-file)) ;; set contacts_file as the output file -- for access from emacs-termux-call
            ))
    ))
