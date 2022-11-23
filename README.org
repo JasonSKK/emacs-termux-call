@@ -14,10 +14,6 @@ Emacs function for termux-call & contacts prompt.  Make a telephone call from Em
 
 Install termux-call
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 33f091a52852480a82a6eb6712e9c59033b0915c
 #+BEGIN_SRC
 mv emacs-termux-call.el /path/to/your/personal/config
 #+END_SRC
