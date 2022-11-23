@@ -24,8 +24,10 @@
 ;; It is dependant on termux-call https://github.com/lahloug/termux_call
 
 ;;; Code:
+;; specify a path for your contacts file, add the next line to your init
+;; (setq contacts_file /path/to/contacts_file)
 
-;; .. to load contacts file
+;; load contacts file
 (defun loadup-file (file)
   (with-temp-buffer
     (insert-file-contents file)
@@ -36,22 +38,21 @@
 ;; prompt to mini-buffer + show contacts
 (defun emacs-termux-call (arg)
   (interactive
-   (if ;; file exists just read it -- prompt to select contact
-       (file-exists-p "./contacts.txt")
+   (if contacts_file ;; if variable not nil
+       ;;(file-exists-p "./contacts.txt") ;; file exists just read it -- prompt to select contact -- REMOVED
        (list
-        (completing-read
+        (completing-read ;; prompt
          "Choose contact: " (split-string
-                             (loadup-file "./contacts.txt") "\n" t)))
-     (setq contactsfile (read-string ;; if file does not exist prompt for string input contacts filename absolute path
-                         "contacts file rel or ab path: " ))
-     (display-warning :warning "Consider adding (setq contactsfile /path/to/contactsfile) to your load path, either providing a contacts file'")
+                             (loadup-file contacts_file) "\n" t)))
+     (setq contacts_file (read-string ;; if nil => prompt for string input contacts file path
+                         "contacts file path: " ))
+     (display-warning :warning "Consider adding (setq contacts_file /path/to/contacts_file) to your load path, either providing a contacts file'") ;; display warning for setq initialisation
      (list
-      (completing-read
+      (completing-read ;; complete process with temporary setq
        "Choose contact: " (split-string
-                           (loadup-file contactsfile) "\n" t)))
+                           (loadup-file contacts_file) "\n" t)))
      ))
   (shell-command (concat "termux-call " (prin1-to-string arg) ))) ;; make termux call
-
 
 (provide 'emacs-termux-call)
 ;;; emacs-termux-call.el ends here
