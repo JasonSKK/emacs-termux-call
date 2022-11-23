@@ -24,8 +24,9 @@
 ;; It is dependant on termux-call https://github.com/lahloug/termux_call
 
 ;;; Code:
-;; specify a path for your contacts file, add the next line to your init
-;; (setq contacts_file /path/to/contacts_file)
+;; specify a path for your contacts file, add (setq contacts_file /path/to/contacts_file) to your init
+
+(setq contacts_file nil)
 
 ;; load contacts file
 (defun loadup-file (file)
@@ -35,7 +36,7 @@
      (point-min)
      (point-max))))
 
-;; prompt to mini-buffer + show contacts
+;; contacts, make call
 (defun emacs-termux-call (arg)
   (interactive
    (if contacts_file ;; if variable not nil
@@ -44,15 +45,30 @@
         (completing-read ;; prompt
          "Choose contact: " (split-string
                              (loadup-file contacts_file) "\n" t)))
-     (setq contacts_file (read-string ;; if nil => prompt for string input contacts file path
-                         "contacts file path: " ))
-     (display-warning :warning "Consider adding (setq contacts_file /path/to/contacts_file) to your load path, either providing a contacts file'") ;; display warning for setq initialisation
+     (setq contacts_file (read-file-name ;; if nil => prompt for string input contacts file path
+                         "contacts file path: "))
+     (display-warning :warning "Consider adding (setq contacts_file /path/to/contacts_file) to your init file") ;; display warning for setq initialisation
      (list
       (completing-read ;; complete process with temporary setq
        "Choose contact: " (split-string
                            (loadup-file contacts_file) "\n" t)))
      ))
   (shell-command (concat "termux-call " (prin1-to-string arg) ))) ;; make termux call
+
+;; setup contacts file -- for google contacts csv format
+(defun emacs-termux-call-setup-contacts ()
+  (interactive
+   (list (let ((input-file (read-file-name "Input contacts file (google contacts & .csv): " "~/"))) ;; select input contacts file -- prompt
+           (let ((output-file (read-file-name "Output contacts file: " "~/"))) ;; select contacts export file -- prompt
+             (shell-command ;; get input file extract first column (first name), save it && show result
+              (concat "cat "
+                      (prin1-to-string input-file) " | cut -d \, -f 1 >> "
+                      (prin1-to-string output-file) " && cat "
+                      (prin1-to-string output-file)))
+             (setq contacts_file output-file)) ;; set contacts_file as the output file -- for access from emacs-termux-call
+           ))
+   ))
+
 
 (provide 'emacs-termux-call)
 ;;; emacs-termux-call.el ends here
