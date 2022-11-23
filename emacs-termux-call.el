@@ -43,7 +43,7 @@
          "Choose contact: " (split-string
                              (loadup-file "./contacts.txt") "\n" t)))
      (setq contactsfile (read-string ;; if file does not exist prompt for string input contacts filename absolute path
-                         "contacts file absolute path: " ))
+                         "contacts file rel or ab path: " ))
      (display-warning :warning "Consider adding (setq contactsfile /path/to/contactsfile) to your load path, either providing a contacts file'")
      (list
       (completing-read
