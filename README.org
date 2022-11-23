@@ -2,32 +2,42 @@
 #+AUTHOR: JasonSKK
 #+DATE:      2022-11-23 12:41 AM
 
+
+
+* Emacs termux call
+
 Emacs function for termux-call & contacts prompt.  Make a telephone call from Emacs running on an Android mobile phone
 
 [[https://github.com/JasonSKK/emacs-termux-call/blob/main/in-use.jpeg][Picture]]
 
+** Dependencies
+ + termux-call https://github.com/lahloug/termux_call
 
-* Dependencies
-+ termux-call https://github.com/lahloug/termux_call
+** Setup
+ 1. Export your contacts from Google Contacts in Google CSV format preferably.
+ 2. Do M-x emacs-termux-call-setup-contacts
+ 3. Provide path/to/contacts.csv file
+ 4. Provide path/for/new/text/file (creates new file)
+ 5. Everything is set just do M-x emacs-termux-call
 
-* Usage
+** Usage
 
-Install termux-call
+ Install termux-call
 
-#+BEGIN_SRC
-mv emacs-termux-call.el /path/to/your/personal/config
-#+END_SRC
+ #+BEGIN_SRC
+ mv emacs-termux-call.el /path/to/your/personal/config
+ #+END_SRC
 
-Export your contacts from mobile phone or google contacts or whateva
+ Export your contacts from mobile phone or google contacts or whateva
 
-Create a txt file containing *ONLY* the exact contact names, numbers not needed
+ Create a txt file containing *ONLY* the exact contact names, numbers not needed
 
-e.g.
+ e.g.
 
-|---------|
-| Angus   |
-| Billie  |
-| Georgia |
-| Jason   |
-| ...     |
-|---------|
+ |---------|
+ | Angus   |
+ | Billie  |
+ | Georgia |
+ | Jason   |
+ | ...     |
+ |---------|
