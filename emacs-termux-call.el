@@ -58,7 +58,7 @@
 ;; setup contacts file -- for google contacts csv format
 (defun emacs-termux-call-setup-contacts (&optional in)
   (interactive
-   (list (let ((output-file (read-file-name "Select path to save contacts: " "~/"))) ;; select input contacts file -- prompt
+   (list (let ((output-file (read-file-name "Select file to save contacts: " "~/"))) ;; select input contacts file -- prompt
            (shell-command ;; get contacts + extract
             (concat "termux-call -h | grep -o -P '(?<={).*(?=})' | tr , '\n' > " output-file)
             ;; old version using google contacts
