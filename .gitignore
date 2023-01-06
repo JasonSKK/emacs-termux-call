@@ -3,3 +3,4 @@ move-contacts-test/
 old/
 contacts.txt
 *.txt
+*.elc
