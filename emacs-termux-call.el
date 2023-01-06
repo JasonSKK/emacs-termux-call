@@ -1,10 +1,10 @@
-;;; emacs-termux-call.el --- Make a telephone call from Emacs running on an Android mobile phone
-
-;;; Commentary:
-
-;; Author: Jason SK <jason.skk98[at]gmail[dot]com>
+;;; emacs-termux-call.el --- Emacs Telephony call on Android
 
 ;; Copyright (C) 2022 Iason SK
+
+;; Author: Jason SK <jason.skk98[at]gmail[dot]com>
+;; Keywords: telephony, android.
+;; URL: https://github.com/JasonSKK/emacs-termux-call
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -16,12 +16,15 @@
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 ;;
-;; You should have received a copy of the GNU General Public License
-;; along with this program; if not, write to the Free Software
-;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+;; You should have received copies of the GNU General Public License and
+;; the GNU Lesser General Public License along with this program.  If
+;; not, see https://www.gnu.org/licenses/.
 
 ;; ;;; Commentary:
-;; It is dependant on termux-call https://github.com/lahloug/termux_call
+;; This program provides a simple configuration for making telephony phone
+;; calls from withing Emacs running on an android phone.  The call is made
+;; through a mini-buffer prompt where the contacts are shown.
+;; It is dependant on termux-call: https://github.com/lahloug/termux_call
 
 ;;; Code:
 ;; specify a path for your contacts file, add (setq contacts_file /path/to/contacts_file) to your init
@@ -39,7 +42,7 @@
 ;; contacts, make call
 (defun emacs-termux-call (arg)
   (interactive
-   (if contacts_file ;; if variable not nil
+   (if contacts_file ;; if contacts_file exists
        ;;(file-exists-p "./contacts.txt") ;; file exists just read it -- prompt to select contact -- REMOVED
        (list
         (completing-read ;; prompt
