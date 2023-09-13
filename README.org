@@ -5,7 +5,9 @@
 
 Emacs function for termux-call & contacts prompt.  Make a telephone call from Emacs running on an Android mobile phone
 
-[[https://github.com/JasonSKK/emacs-termux-call/blob/main/in-use.jpeg][Picture]]
+#+HTML: <img src="in-use.jpeg" alt="Logo" align="right" width="240" style="padding-left: 20px;"/>
+
+# [[https://github.com/JasonSKK/emacs-termux-call/blob/main/in-use.jpeg][Picture]]
 
 ** Dependencies
  + termux-call https://github.com/lahloug/termux_call
